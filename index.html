@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pronóstico de Partido</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+        }
+        h1 {
+            color: #1e90ff;
+        }
+        .input-container {
+            margin-top: 20px;
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+            font-size: 16px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #32cd32;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #228b22;
+        }
+        .result {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #ff4500;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pronóstico de Partido</h1>
+    <div class="input-container">
+        <input type="text" id="equipo1" placeholder="Equipo 1">
+        <input type="text" id="equipo2" placeholder="Equipo 2">
+    </div>
+    <button onclick="obtenerPronostico()">Predecir</button>
+    <div class="result" id="resultado"></div>
+
+    <script>
+        async function obtenerPronostico() {
+            const equipo1 = document.getElementById('equipo1').value;
+            const equipo2 = document.getElementById('equipo2').value;
+            
+            if (!equipo1 || !equipo2) {
+                alert("Por favor, ingresa ambos equipos.");
+                return;
+            }
+
+            // Simulación de llamada a API (esto es solo un ejemplo)
+            const probabilidad = calcularProbabilidad(equipo1, equipo2);
+
+            // Mostrar el resultado
+            document.getElementById('resultado').innerText = `${equipo1} vs ${equipo2} - ${probabilidad} de que se cumpla`;
+        }
+
+        // Simulación de cálculo de probabilidad (reemplazar con API real)
+        function calcularProbabilidad(equipo1, equipo2) {
+            // Aquí iría el código que usa datos de la API real, como los 10 datos que mencionaste.
+            // En este ejemplo, simplemente se devuelve una probabilidad aleatoria.
+            const probabilidad = Math.random() * (0.9 - 0.7) + 0.7; // Entre 70% y 90%
+            return (Math.round(probabilidad * 100)) + '%';
+        }
+    </script>
+</body>
+</html>
